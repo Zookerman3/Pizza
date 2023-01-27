@@ -10,12 +10,12 @@
 </head>
 <body>
     <h1>Welcome to Stephen's Pizza Parlor!</h1>
-    <form>
+    <form id="input-pizza">
         <label for="size">Please pick the size for your pizza.</label>
         <select name="size" id="size">
-            <option value="small">Small: 8 inch</option>
-            <option value="medium">Medium: 12 inch</option>
-            <option value="Large">Large: 16 inch</option>
+            <option value="8">Small: 8 inch</option>
+            <option value="12">Medium: 12 inch</option>
+            <option value="16">Large: 16 inch</option>
         </select>
         <br>
         <br>
@@ -25,6 +25,9 @@
             <option value="sausage">Sausage</option>
             <option value="beef">Ground Beef</option>
         </select>
+        <br>
+        <br>
+        <button type="submit" id="pizza-button">Add Pizza to Order</button>
     </form>
 </body>
 </html>
