@@ -17,8 +17,15 @@ function Pizza(size, firstTopping){
 
 //UI Logic
 
-function handleFormSubmission(){
+let pizzaList = new PizzaList()
+
+function handleFormSubmission(event){
+    event.preventDefault();
     const pizzaSize = document.getElementById("size").value;
+    const firstPizzaTopping = document.getElementById("first-topping").value;
+    let newPizza = new Pizza(pizzaSize, firstPizzaTopping)
+    pizzaList.addPizza(newPizza);
+    console.log(pizzaList);
 }
 
 window.addEventListener("load", function(event){
