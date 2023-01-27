@@ -12,14 +12,13 @@ PizzaList.prototype.addPizza = function(pizza){
     this.listOfPizzas[pizza.firstTopping + " " + pizza.size + " inch pizza"] = pizza;
 }
 
-Pizza.prototype.calculatePizzaCost = function(size){
+Pizza.prototype.calculatePizzaCost = function(pizzaSize){
     let totalPrice = 0
-
-    if(size === 8){
+    if(pizzaSize === "8"){
         totalPrice = 10.99
-    } else if(size === 12){
+    } else if(pizzaSize === "12"){
         totalPrice = 14.99
-    } else if(size === 16){
+    } else if(pizzaSize === "16"){
         totalPrice = 18.99
     }
     return totalPrice
@@ -28,23 +27,23 @@ Pizza.prototype.calculatePizzaCost = function(size){
 
 //UI Logic
 
-function displayOrder(){
+function displayOrder(topping, totalPrice){
     let p = document.createElement("p")
     const orderDiv = document.querySelector("#order")
     orderDiv.after(p)
+    p.innerText = "You Ordered: " + topping + " Pizza for $" + totalPrice
     
-
 }
 
 let pizzaList = new PizzaList()
 
 function handleFormSubmission(event){
     event.preventDefault();
-    let pizzaPrice = 0
     const pizzaSize = document.getElementById("size").value;
     const firstPizzaTopping = document.getElementById("first-topping").value;
     let newPizza = new Pizza(pizzaSize, firstPizzaTopping)
-    const totalPrice = newPizza.calculatePizzaCost(size)
+    const totalPrice = newPizza.calculatePizzaCost(pizzaSize)
+    console.log(totalPrice)
     pizzaList.addPizza(newPizza);
     console.log(pizzaList);
     displayOrder(firstPizzaTopping, totalPrice);
